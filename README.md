@@ -1,84 +1,33 @@
-# Form Type Bundle
+# Form Field Collection Bundle
 
-Form type bundle is an extension for the Contao CMS to provide a generic way to create forms for specific approaches with contao form generator. 
-It is aimed at developers and contains no build-in form types.
+This bundle add additional form fields to the contao form generator.
 
-## Feature
-* generic way to create forms for specific approaches with contao form generator
-* options event for select, checkbox and radio form fields
-* form types can support a first time wizard to setup basic form fields
+## Fields
+* Date/Time field - Field of html type date or time with native pickers (if supported by browser)
+* Success Message Field - Displays a success message after form submission
 
 ## Installation
 
 Install the bundle via composer and update your database afterwards:
 
 ```
-composer require heimrichhannot/contao-form-type-bundle
+composer require heimrichhannot/contao-form-fields-collection-bundle
 ```
 
 ## Usage
 
-### Create a new form type
+After install you'll find new form field types. 
 
-Create a new class that extends `[AbstractFormType.php](src%2FFormType%2FAbstractFormType.php)` (recommended) or implements the `FormTypeInterface`. Register it as service with autoconfiguration enabled.
+### Date/Time field
 
-A label can be set within `$GLOBALS['TL_LANG']['tl_form']['FORMTYPE']`:
+![Frontend output of Date time widget](docs%2Fimg%2Fscreenshot_datetime_frontend.png)
 
-```php
-# contao/languages/de/tl_form.php
-$GLOBALS['TL_LANG']['tl_form']['FORMTYPE']['huh_mediathek'] = 'Mediathek';
-```
+Select the field type "Date/ time" and select the format (date or time). 
 
-### First time wizard
+![screeenshot_datetime.png](docs%2Fimg%2Fscreeenshot_datetime.png)
 
-You can add a first time wizard to your form type by implementing `getDefaultFields()` method.
-It expects field definitions in array format as return values. 
-These fields will be created when executing the wizard.
+### Success Message field
 
-```php
-public function getDefaultFields(FormModel $formModel): array
-{
-    return [
-        [
-            'type' => 'text',
-            'name' => 'title',
-            'label' => $this->translator->trans('tl_example.title.0', [], 'contao_tl_example'),
-            'mandatory' => '1',
-        ],
-        [
-            'type' => 'textarea',
-            'name' => 'text',
-            'label' => $this->translator->trans('tl_example.text.0', [], 'contao_tl_example'),
-        ],
-    ];
-}
-```
+Select the field type "Success Message" and enter the message you want to display after form submission.
 
-### Options event
-
-If you want to provide options for a select, checkbox or radio form field, you can register an event listener. 
-The event name is `huh.form_type.<formtype>.<field>.options'`.
-
-```php
-// src/EventListener/OptionsEventListener.php
-use HeimrichHannot\FormTypeBundle\Event\FieldOptionsEvent;
-
-class OptionsEventListener implements EventSubscriberInterface
-{
-    public static function getSubscribedEvents()
-    {
-        return [
-            'huh.form_type.huh_media_library.licence.options' => 'onLicenceOptions',
-        ];
-    }
-
-    public function onLicenceOptions(FieldOptionsEvent $event): void
-    {
-        $event->addOption('free', 'Free');
-        $event->addOption('adobe', 'Adobe');
-        $event->addOption('istock', 'iStock');
-    }
-}
-```
-
-
+![screenshot_successmessage_backend.png](docs%2Fimg%2Fscreenshot_successmessage_backend.png)

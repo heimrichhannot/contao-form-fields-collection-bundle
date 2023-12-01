@@ -1,5 +1,7 @@
 <?php
 
-use HeimrichHannot\FormFieldsCollectionBundle\FrontendWidget\SuccessMessageFrontendWidget;
+use HeimrichHannot\FormFieldsCollectionBundle\FrontendWidget\DateTimeWidget;
+use HeimrichHannot\FormFieldsCollectionBundle\FrontendWidget\SuccessMessageWidget;
 
-$GLOBALS['BE_FFL'][SuccessMessageFrontendWidget::TYPE] = SuccessMessageFrontendWidget::class;
+$GLOBALS['TL_FFL'][SuccessMessageWidget::TYPE] = SuccessMessageWidget::class;
+$GLOBALS['TL_FFL'][DateTimeWidget::TYPE]       = DateTimeWidget::class;

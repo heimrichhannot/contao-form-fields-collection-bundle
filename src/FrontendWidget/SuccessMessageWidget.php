@@ -6,16 +6,22 @@ use Contao\FormExplanation;
 use Contao\System;
 use Symfony\Component\HttpFoundation\Session\Session;
 
-class SuccessMessageFrontendWidget extends FormExplanation
+class SuccessMessageWidget extends FormExplanation
 {
-    public const TYPE = 'successMessage';
+    public const TYPE = 'huh_successMessage';
 
     public function generate(): string
     {
         $requestStack = System::getContainer()->get('request_stack');
+        $scopeMatcher = System::getContainer()->get('contao.routing.scope_matcher');
         $request = $requestStack->getCurrentRequest();
+
         if (!$request) {
             return '';
+        }
+
+        if ($scopeMatcher->isBackendRequest($request)) {
+            return parent::generate();
         }
 
         /** @var Session $session */
