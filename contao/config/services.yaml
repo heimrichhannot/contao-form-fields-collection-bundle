@@ -1,0 +1,5 @@
+services:
+  HeimrichHannot\FormFieldsCollectionBundle\:
+    resource: '../src/{EventListener}/*'
+    autoconfigure: true
+    autowire: true
