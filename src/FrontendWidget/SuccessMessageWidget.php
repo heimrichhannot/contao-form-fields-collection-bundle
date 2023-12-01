@@ -10,6 +10,8 @@ class SuccessMessageWidget extends FormExplanation
 {
     public const TYPE = 'huh_successMessage';
 
+    protected $strTemplate = 'form_huh_successMessage';
+
     public function generate(): string
     {
         $requestStack = System::getContainer()->get('request_stack');
@@ -31,6 +33,7 @@ class SuccessMessageWidget extends FormExplanation
         }
 
         if ($session->get(static::generateMessageName($this->strName), false)) {
+            $session->remove(static::generateMessageName($this->strName));
             return parent::generate();
         }
 
