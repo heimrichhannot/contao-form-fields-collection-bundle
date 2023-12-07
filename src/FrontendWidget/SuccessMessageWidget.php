@@ -12,7 +12,7 @@ class SuccessMessageWidget extends FormExplanation
 
     protected $strTemplate = 'form_huh_successMessage';
 
-    public function generate(): string
+    public function parse($arrAttributes = null)
     {
         $requestStack = System::getContainer()->get('request_stack');
         $scopeMatcher = System::getContainer()->get('contao.routing.scope_matcher');
@@ -23,7 +23,7 @@ class SuccessMessageWidget extends FormExplanation
         }
 
         if ($scopeMatcher->isBackendRequest($request)) {
-            return parent::generate();
+            return parent::generate() ?? '';
         }
 
         /** @var Session $session */
@@ -34,7 +34,7 @@ class SuccessMessageWidget extends FormExplanation
 
         if ($session->get(static::generateMessageName($this->strName), false)) {
             $session->remove(static::generateMessageName($this->strName));
-            return parent::generate();
+            return parent::generate() ?? '';
         }
 
         return '';

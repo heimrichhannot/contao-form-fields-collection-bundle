@@ -2,7 +2,9 @@
 
 namespace HeimrichHannot\FormFieldsCollectionBundle\EventListener;
 
+use Contao\CoreBundle\DependencyInjection\Attribute\AsCallback;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsHook;
+use Contao\DataContainer;
 use Contao\FormFieldModel;
 use Form;
 use HeimrichHannot\FormFieldsCollectionBundle\FrontendWidget\SuccessMessageWidget;
@@ -14,6 +16,21 @@ class SuccessMessageListener
         private RequestStack $requestStack,
     )
     {
+    }
+
+    #[AsCallback(table: 'tl_form_field', target: 'config.onload')]
+    public function onLoadCallback(DataContainer $dc = null): void
+    {
+        if (!$dc || !$dc->id) {
+            return;
+        }
+
+        $widget = FormFieldModel::findByPk($dc->id);
+        if (!$widget || (SuccessMessageWidget::TYPE !== $widget->type)) {
+            return;
+        }
+
+        $GLOBALS['TL_DCA']['tl_form_field']['fields']['text']['eval']['mandatory'] = true;
     }
 
     #[AsHook("processFormData")]

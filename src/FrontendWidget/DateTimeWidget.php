@@ -31,7 +31,7 @@ class DateTimeWidget extends FormTextField
             }
         } elseif ('current' === $this->defaultDateTimeValue) {
             $this->value = match ($this->dateTimeType) {
-                'date' => date('Y-m-d'),
+                "", 'date' => date('Y-m-d'),
                 'time' => date('H:i'),
             };
         }
