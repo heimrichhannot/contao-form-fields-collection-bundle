@@ -1,0 +1,23 @@
+<?php $this->extend('form_row'); ?>
+
+<?php $this->block('field'); ?>
+  <fieldset id="ctrl_<?= $this->id ?>" class="checkbox_container<?php if ($this->class): ?> <?= $this->class ?><?php endif; ?>">
+
+    <?php if ($this->label): ?>
+      <legend>
+        <?php if ($this->mandatory): ?>
+          <span class="invisible"><?= $this->mandatoryField ?> </span><?= $this->label ?><span class="mandatory">*</span>
+        <?php else: ?>
+          <?= $this->label ?>
+        <?php endif; ?>
+      </legend>
+    <?php endif; ?>
+
+    <?php if ($this->hasErrors()): ?>
+      <p class="error"><?= $this->getErrorAsString() ?></p>
+    <?php endif; ?>
+
+    <span><input type="checkbox" name="<?= $this->name ?>" id="opt_<?= $this->id ?>" class="checkbox" value="<?= $this->value ?>"<?= $this->isChecked() ?><?= $this->getAttributes() ?>> <label id="lbl_<?= $this->id ?>" for="opt_<?= $this->id ?>"><?= $this->label ?></label></span>
+
+  </fieldset>
+<?php $this->endblock(); ?>
