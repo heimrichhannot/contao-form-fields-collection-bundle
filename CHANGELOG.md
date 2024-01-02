@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.1.3] - 2024-01-01
+## [0.1.3] - 2024-01-02
 - Fixed: compatibility issue with symfony 6
 - Fixed: invalid class import
 - Fixed: missing success message template
