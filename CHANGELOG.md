@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 
 ## [0.1.3] - 2024-01-01
 - Fixed: compatibility issue with symfony 6
+- Fixed: invalid class import
+- Fixed: missing success message template
 
 ## [0.1.2] - 2023-12-07
 - Changed: make successMassage text field mandatory

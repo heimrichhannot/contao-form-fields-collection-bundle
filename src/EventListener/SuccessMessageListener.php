@@ -5,8 +5,8 @@ namespace HeimrichHannot\FormFieldsCollectionBundle\EventListener;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsCallback;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsHook;
 use Contao\DataContainer;
+use Contao\Form;
 use Contao\FormFieldModel;
-use Form;
 use HeimrichHannot\FormFieldsCollectionBundle\FrontendWidget\SuccessMessageWidget;
 use Symfony\Component\HttpFoundation\RequestStack;
 

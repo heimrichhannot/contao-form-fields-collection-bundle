@@ -34,7 +34,7 @@ class SuccessMessageWidget extends FormExplanation
 
         if ($session->get(static::generateMessageName($this->strName), false)) {
             $session->remove(static::generateMessageName($this->strName));
-            return parent::generate() ?? '';
+            return parent::parse() ?? '';
         }
 
         return '';
