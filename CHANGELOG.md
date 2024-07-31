@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.4] - 2024-07-31
+- Fixed: possible exception in DateTimeWidget when value is null 
+
 ## [0.1.3] - 2024-01-02
 - Fixed: compatibility issue with symfony 6
 - Fixed: invalid class import

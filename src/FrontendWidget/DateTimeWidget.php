@@ -73,6 +73,10 @@ class DateTimeWidget extends FormTextField
 
     protected function validator($varInput)
     {
+        if (empty($varInput)) {
+            return parent::validator('');
+        }
+
         return parent::validator(match ($this->dateTimeType) {
             'date' => \DateTime::createFromFormat('Y-m-d', $varInput)->format(Date::getNumericDateFormat()),
             'time' => \DateTime::createFromFormat('H:i', $varInput)->format(Date::getNumericTimeFormat()),
