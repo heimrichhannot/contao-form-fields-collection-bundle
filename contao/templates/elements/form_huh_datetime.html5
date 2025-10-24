@@ -1,1 +1,1 @@
-<?php $this->extend('form_textfield') ?>
+<?php $this->extend($this->parentTemplate) ?>

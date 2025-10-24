@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.5] - 2025-10-24
+- Fixed: compatibility issue with contao 5 for date widget
+
 ## [0.1.4] - 2024-07-31
 - Fixed: possible exception in DateTimeWidget when value is null 
 
