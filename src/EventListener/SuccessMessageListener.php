@@ -19,7 +19,7 @@ class SuccessMessageListener
     }
 
     #[AsCallback(table: 'tl_form_field', target: 'config.onload')]
-    public function onLoadCallback(DataContainer $dc = null): void
+    public function onLoadCallback(?DataContainer $dc = null): void
     {
         if (!$dc || !$dc->id) {
             return;

@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.6] - 2025-11-10
+- Fixed: implicitly nullable warning
+- Fixed: missing return type declaration
+
 ## [0.1.5] - 2025-10-24
 - Fixed: compatibility issue with contao 5 for date widget
 
