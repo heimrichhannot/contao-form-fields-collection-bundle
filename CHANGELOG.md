@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.7] - 2026-02-06
+- Changed: enhance leads support
+
 ## [0.1.6] - 2025-11-10
 - Fixed: implicitly nullable warning
 - Fixed: missing return type declaration
