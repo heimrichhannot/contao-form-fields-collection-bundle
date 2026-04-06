@@ -10,3 +10,5 @@ $lang['defaultDateTimeValue']['current'] = 'Current date/ time';
 $lang['defaultDateTimeValue']['custom'] = 'Custom date/ time';
 $lang['defaultDateTimeCustomValue'][0] = 'Custom date/ time';
 $lang['defaultDateTimeCustomValue'][1] = 'Please enter a custom date/ time.';
+$lang['singleCheckboxValue'][0] = 'Checkbox Value';
+$lang['singleCheckboxValue'][1] = 'Set the checkbox value. If empty, the value will be 1.';
