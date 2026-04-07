@@ -31,7 +31,6 @@
                     ->set('id', 'opt_' . $option['id'])
                     ->addClass('checkbox')
                     ->set('value', $option['value'])
-                    ->set('checked', $option['checked'])
                     ->mergeWith($option['attributes'])
                     ->mergeWith($this->checkboxAttributes ?: []);
         ?>

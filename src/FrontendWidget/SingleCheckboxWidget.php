@@ -27,7 +27,7 @@ class SingleCheckboxWidget extends FormCheckbox
             'name' => $this->strName,
             'id' => $this->strId,
             'value' => $this->value ?: '1',
-            'checked' => self::optionChecked('1', $this->value),
+            'checked' => '',
             'attributes' => $this->getAttributes(),
             'label' => $text
         ];
