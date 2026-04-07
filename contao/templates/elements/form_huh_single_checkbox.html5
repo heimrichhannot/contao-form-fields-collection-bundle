@@ -22,27 +22,28 @@
         <input type="hidden" name="<?= $this->name ?>" value="">
 
         <?php
+            $option = $this->getOption();
             $wrapperElement = $this->option_wrapper_element ?: 'span';
             $wrapperElementAttributes = $this->attrs()->mergeWith($this->wrapperElementAttributes ?: []);
             $checkboxAttributes = $this->attrs()
                     ->set('type', 'checkbox')
                     ->set('name', $this->name)
-                    ->set('id', 'opt_' . $this->checkboxOption['id'])
+                    ->set('id', 'opt_' . $option['id'])
                     ->addClass('checkbox')
-                    ->set('value', $this->checkboxOption['value'])
-                    ->set('checked', $this->checkboxOption['checked'])
-                    ->mergeWith($this->checkboxOption['attributes'])
+                    ->set('value', $option['value'])
+                    ->set('checked', $option['checked'])
+                    ->mergeWith($option['attributes'])
                     ->mergeWith($this->checkboxAttributes ?: []);
         ?>
 
         <<?= $wrapperElement ?><?= $wrapperElementAttributes ?>>
             <input<?= $checkboxAttributes ?>>
-            <label id="lbl_<?= $this->checkboxOption['id'] ?>" for="opt_<?= $this->checkboxOption['id'] ?>">
+            <label id="lbl_<?= $option['id'] ?>" for="opt_<?= $option['id'] ?>">
                 <?php if ($this->mandatory): ?>
-                    <span class="invisible"><?= $this->mandatoryField ?> </span><?= $this->checkboxOption['label'] ?>
+                    <span class="invisible"><?= $this->mandatoryField ?> </span><?= $option['label'] ?>
                     <span class="mandatory">*</span>
                 <?php else: ?>
-                    <?= $this->checkboxOption['label'] ?>
+                    <?= $option['label'] ?>
                 <?php endif; ?>
             </label>
         </<?= $wrapperElement ?>>
