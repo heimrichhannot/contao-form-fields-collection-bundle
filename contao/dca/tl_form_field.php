@@ -8,14 +8,14 @@ $dca = &$GLOBALS['TL_DCA']['tl_form_field'];
 
 $dca['palettes'][SuccessMessageWidget::TYPE] = '{type_legend},type;{text_legend},text;{expert_legend:hide},class;{template_legend:hide},customTpl;{invisible_legend:hide},invisible';
 $dca['palettes'][DateTimeWidget::TYPE] = '{type_legend},type,name,label;{fconfig_legend},mandatory,dateTimeType,defaultDateTimeValue;{expert_legend:hide},class,minval,maxval,accesskey,tabindex;{template_legend:hide},customTpl;{invisible_legend:hide},invisible';
-
-$dca['palettes'][SingleCheckboxWidget::TYPE] = '
-{type_legend},type,name,label;
-{fconfig_legend},mandatory,help;
-{options_legend},value,text;
-{expert_legend:hide},class;
-{template_legend:hide},customTpl;
-{invisible_legend:hide},invisible';
+$dca['palettes'][SingleCheckboxWidget::TYPE] = <<< PALETTE
+    {type_legend},type,name,label;
+    {fconfig_legend},mandatory,help;
+    {options_legend},value,text;    
+    {expert_legend:hide},class;
+    {template_legend:hide},customTpl;
+    {invisible_legend:hide},invisible
+    PALETTE;
 
 $dca['subpalettes']['defaultDateTimeValue_custom'] = 'value';
 

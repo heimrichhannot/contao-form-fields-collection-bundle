@@ -5,14 +5,14 @@ use HeimrichHannot\FormFieldsCollectionBundle\FrontendWidget\SingleCheckboxWidge
 use HeimrichHannot\FormFieldsCollectionBundle\FrontendWidget\SuccessMessageWidget;
 
 $GLOBALS['TL_LANG']['FFL'][SuccessMessageWidget::TYPE] = [
-    'Success Message',
+    'Success Message (Form Fields Collection)',
     'Output a success message after form submission.'
 ];
 $GLOBALS['TL_LANG']['FFL'][DateTimeWidget::TYPE]       = [
-    'Date/ time',
+    'Date/ time (Form Fields Collection)',
     'A date or time field.'
 ];
 $GLOBALS['TL_LANG']['FFL'][SingleCheckboxWidget::TYPE]       = [
-    'Checkbox',
+    'Checkbox Single (Form Fields Collection)',
     'A single checkbox that can be either checked or unchecked.'
 ];
