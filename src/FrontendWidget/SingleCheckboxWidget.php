@@ -3,6 +3,7 @@
 namespace HeimrichHannot\FormFieldsCollectionBundle\FrontendWidget;
 
 use Contao\FormCheckbox;
+use Contao\Input;
 use Contao\System;
 
 class SingleCheckboxWidget extends FormCheckbox
@@ -21,15 +22,23 @@ class SingleCheckboxWidget extends FormCheckbox
             $text = trim($matches[1]);
         }
 
-        return [
+        $value = (null !== $this->value && '' !== $this->value) ? $this->value : '1';
+        $option = [
             'type' => 'option',
             'name' => $this->strName,
             'id' => $this->strId,
-            'value' => (null !== $this->value && '' !== $this->value) ? $this->value : '1',
-            'checked' => '',
+            'value' => $value,
             'attributes' => $this->getAttributes(),
             'label' => $text
         ];
+
+        if (!Input::isPost()) {
+            $option['checked'] = false;
+        } else {
+            $option['checked'] = (string)$this->varValue === (string)$value;
+        }
+
+        return $option;
     }
 
     protected function isValidOption($varInput): bool
