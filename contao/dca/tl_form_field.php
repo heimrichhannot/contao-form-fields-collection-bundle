@@ -11,7 +11,7 @@ $dca['palettes'][DateTimeWidget::TYPE] = '{type_legend},type,name,label;{fconfig
 $dca['palettes'][SingleCheckboxWidget::TYPE] = <<< PALETTE
     {type_legend},type,name,label;
     {fconfig_legend},mandatory,help;
-    {options_legend},value,text;    
+    {options_legend},value,text;
     {expert_legend:hide},class;
     {template_legend:hide},customTpl;
     {invisible_legend:hide},invisible
