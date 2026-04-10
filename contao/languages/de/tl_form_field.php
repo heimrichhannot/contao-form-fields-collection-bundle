@@ -10,3 +10,5 @@ $lang['defaultDateTimeValue']['current'] = 'Aktuelle Zeit';
 $lang['defaultDateTimeValue']['custom'] = 'Benutzerdefinierte Zeit';
 $lang['defaultDateTimeCustomValue'][0] = 'Benutzerdefinierte Zeit';
 $lang['defaultDateTimeCustomValue'][1] = 'Bitte geben Sie die benutzerdefinierte Zeit ein.';
+$lang['singleCheckboxValue'][0] = 'Checkbox Wert';
+$lang['singleCheckboxValue'][1] = 'Legen Sie den Checkbox-Wert fest. Wenn leer, wird der Wert 1 sein.';

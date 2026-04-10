@@ -1,0 +1,20 @@
+{% extends '@Contao/be_tinyMCE.html5' %}
+
+{% block content_css %}
+{% endblock %}
+
+{% block menubar %}
+  menubar: false,
+{% endblock %}
+
+{% block toolbar %}
+  toolbar: 'link unlink | bold italic | code',
+{% endblock %}
+
+{% block plugins %}
+  plugins: 'link code',
+{% endblock %}
+
+{% block custom %}
+  min_height: 80,
+{% endblock %}

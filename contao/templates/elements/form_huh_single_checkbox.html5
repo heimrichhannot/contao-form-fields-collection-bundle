@@ -1,0 +1,57 @@
+<?php $this->extend('form_row'); ?>
+
+<?php $this->block('field'); ?>
+    <fieldset id="ctrl_<?= $this->id ?>"
+              class="checkbox_container<?php if ($this->class): ?> <?= $this->class ?><?php endif; ?>"<?php if ($this->help): ?> aria-describedby="help_ctrl_<?= $this->id ?>"<?php endif; ?>>
+
+        <?php if ($this->label): ?>
+            <legend>
+                <?php if ($this->mandatory): ?>
+                    <span class="invisible"><?= $this->mandatoryField ?> </span><?= $this->label ?><span
+                            class="mandatory">*</span>
+                <?php else: ?>
+                    <?= $this->label ?>
+                <?php endif; ?>
+            </legend>
+        <?php endif; ?>
+
+        <?php if ($this->hasErrors()): ?>
+            <p class="error"><?= $this->getErrorAsString() ?></p>
+        <?php endif; ?>
+
+        <input type="hidden" name="<?= $this->name ?>" value="">
+
+        <?php
+            $option = $this->getOption();
+            $wrapperElement = $this->option_wrapper_element ?: 'span';
+            $wrapperElementAttributes = $this->attrs()->mergeWith($this->wrapperElementAttributes ?: []);
+            $checkboxAttributes = $this->attrs()
+                    ->set('type', 'checkbox')
+                    ->set('name', $this->name)
+                    ->set('id', 'opt_' . $option['id'])
+                    ->addClass('checkbox')
+                    ->set('value', $option['value'])
+                    ->set('checked', 'checked', $option['checked'])
+                    ->mergeWith($option['attributes'])
+                    ->mergeWith($this->checkboxAttributes ?: []);
+        ?>
+
+        <<?= $wrapperElement ?><?= $wrapperElementAttributes ?>>
+            <input<?= $checkboxAttributes ?>>
+            <label id="lbl_<?= $option['id'] ?>" for="opt_<?= $option['id'] ?>">
+                <?php if ($this->mandatory): ?>
+                    <span class="invisible"><?= $this->mandatoryField ?> </span><?= $option['label'] ?>
+                    <span class="mandatory">*</span>
+                <?php else: ?>
+                    <?= $option['label'] ?>
+                <?php endif; ?>
+            </label>
+        </<?= $wrapperElement ?>>
+
+
+        <?php if ($this->help): ?>
+            <p class="help" id="help_ctrl_<?= $this->id ?>"><?= $this->help ?></p>
+        <?php endif; ?>
+
+    </fieldset>
+<?php $this->endblock(); ?>
