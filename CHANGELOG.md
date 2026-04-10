@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.9] - 2026-04-10
+- Added: single checkbox field type ([#1](https://github.com/heimrichhannot/contao-form-fields-collection-bundle/pull/1))
+
 ## [0.1.8] - 2026-03-30
 - Changed: allow symfony 7
 
