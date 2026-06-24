@@ -40,3 +40,16 @@ Select the field type "Checkbox Single". Then configure the checkbox label in th
 Like other Contao form fields, you can also mark the checkbox as mandatory and provide a help text.
 
 ![Frontend Output Checkbox Single](docs/img/screenshot_checkbox.png)
+
+#### Customize
+
+The template is made to be customized:
+
+```php
+// Make it a bootstrap one:
+<?php $this->extend('form_huh_single_checkbox');
+
+$this->option_wrapper_element = 'div';
+$this->wrapperElementAttributes = $this->attrs()->addClass('form-check')->mergeWith($this->wrapperElementAttributes ?: []);
+$this->checkboxAttributes = $this->attrs()->addClass('form-check-input')->mergeWith($this->checkboxAttributes ?: []);
+```

@@ -2,11 +2,9 @@
 
 use HeimrichHannot\FormFieldsCollectionBundle\FrontendWidget\DateTimeWidget;
 use HeimrichHannot\FormFieldsCollectionBundle\FrontendWidget\SingleCheckboxWidget;
-use HeimrichHannot\FormFieldsCollectionBundle\FrontendWidget\SuccessMessageWidget;
 
 $dca = &$GLOBALS['TL_DCA']['tl_form_field'];
 
-$dca['palettes'][SuccessMessageWidget::TYPE] = '{type_legend},type;{text_legend},text;{expert_legend:hide},class;{template_legend:hide},customTpl;{invisible_legend:hide},invisible';
 $dca['palettes'][DateTimeWidget::TYPE] = '{type_legend},type,name,label;{fconfig_legend},mandatory,dateTimeType,defaultDateTimeValue;{expert_legend:hide},class,minval,maxval,accesskey,tabindex;{template_legend:hide},customTpl;{invisible_legend:hide},invisible';
 $dca['palettes'][SingleCheckboxWidget::TYPE] = <<< PALETTE
     {type_legend},type,name,label;
