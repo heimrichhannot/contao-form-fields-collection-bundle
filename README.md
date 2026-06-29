@@ -5,7 +5,6 @@ This bundle adds additional form fields to the Contao form generator.
 ## Fields
 * Date/Time field - Field of html type date or time with native pickers (if supported by browser)
 * Single Checkbox field - A single checkbox with a rich-text option label and configurable submitted value
-* Success Message Field - Displays a success message after form submission
 
 ## Installation
 
@@ -26,12 +25,6 @@ After install you'll find new form field types.
 Select the field type "Date/ time" and select the format (date or time). 
 
 ![screeenshot_datetime.png](docs%2Fimg%2Fscreeenshot_datetime.png)
-
-### Success Message field
-
-Select the field type "Success Message" and enter the message you want to display after form submission.
-
-![screenshot_successmessage_backend.png](docs%2Fimg%2Fscreenshot_successmessage_backend.png)
 
 ### Single Checkbox field
 
