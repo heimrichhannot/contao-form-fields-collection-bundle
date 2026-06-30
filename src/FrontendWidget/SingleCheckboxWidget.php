@@ -16,7 +16,7 @@ class SingleCheckboxWidget extends FormCheckbox
     {
         $text = System::getContainer()->get('contao.insert_tag.parser')->replaceInline((string)$this->text);
         if (
-            preg_match('/^\s*<p\b[^>]*>(.*)<\/p>\s*$/is', $text, $matches) === 1
+            preg_match('/^\s*<p\b[^>]*>(.*)<\/p>\s*$/is', (string) $text, $matches) === 1
             && preg_match('/<\/?p\b/i', $matches[1]) !== 1
         ) {
             $text = trim($matches[1]);
@@ -44,7 +44,7 @@ class SingleCheckboxWidget extends FormCheckbox
         return $option;
     }
 
-    public function getAttributes($arrStrip = array())
+    public function getAttributes($arrStrip = [])
     {
         if ($this->mandatory) {
             $this->arrAttributes['required'] = 'required';
