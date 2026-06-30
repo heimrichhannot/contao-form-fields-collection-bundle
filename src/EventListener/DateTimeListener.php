@@ -12,13 +12,13 @@ class DateTimeListener
     #[AsCallback(table: 'tl_form_field', target: 'config.onload')]
     public function onLoadCallback(DataContainer $dc): void
     {
-        if (!$dc || !$dc->id) {
+        if (!$dc->id) {
             return;
         }
 
-        /** @var \HeimrichHannot\FormFieldsCollectionBundle\Model\FormFieldModel $widget */
+        /** @var \HeimrichHannot\FormFieldsCollectionBundle\Model\FormFieldModel|null $widget */
         $widget = FormFieldModel::findByPk($dc->id);
-        if (!$widget || (DateTimeWidget::TYPE !== $widget->type)) {
+        if (DateTimeWidget::TYPE !== $widget?->type) {
             return;
         }
 

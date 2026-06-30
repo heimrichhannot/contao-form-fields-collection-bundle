@@ -28,12 +28,14 @@ class DateTimeWidget extends FormText
                 $this->value = match ($this->dateTimeType) {
                     'date' => Date::parse('Y-m-d', $fieldModel->value),
                     'time' => Date::parse("H:i", $fieldModel->value),
+                    default => ''
                 };
             }
         } elseif ('current' === $this->defaultDateTimeValue) {
             $this->value = match ($this->dateTimeType) {
                 "", 'date' => date('Y-m-d'),
                 'time' => date('H:i'),
+                default => ''
             };
         }
 
@@ -66,6 +68,7 @@ class DateTimeWidget extends FormText
         return parent::validator(match ($this->dateTimeType) {
             'date' => \DateTime::createFromFormat('Y-m-d', $varInput)->format(Date::getNumericDateFormat()),
             'time' => \DateTime::createFromFormat('H:i', $varInput)->format(Date::getNumericTimeFormat()),
+            default => $varInput,
         });
     }
 
@@ -76,11 +79,13 @@ class DateTimeWidget extends FormText
             $dateTime = match ($this->dateTimeType) {
                 'date' => \DateTime::createFromFormat(Date::getNumericDateFormat(), $this->value),
                 'time' => \DateTime::createFromFormat(Date::getNumericTimeFormat(), $this->value),
+                default => $this->value,
             };
             if (false !== $dateTime) {
                 $this->value = match ($this->dateTimeType) {
                     'date' => $dateTime->format('Y-m-d'),
                     'time' => $dateTime->format('H:i'),
+                    default => $this->value,
                 };
             }
         }

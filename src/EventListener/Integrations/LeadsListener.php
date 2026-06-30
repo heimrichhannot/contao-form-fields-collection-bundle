@@ -20,7 +20,7 @@ class LeadsListener
         $format = match ($event->getField()['dateTimeType']) {
             'date' => Date::getNumericDateFormat(),
             'time' => Date::getNumericTimeFormat(),
-            'default' => null,
+            default => null,
         };
 
         if (null === $format) {
@@ -45,7 +45,7 @@ class LeadsListener
         $format = match ($event->getField()['dateTimeType']) {
             'date' => Date::getNumericDateFormat(),
             'time' => Date::getNumericTimeFormat(),
-            'default' => null,
+            default => null,
         };
 
         if (null === $format) {
