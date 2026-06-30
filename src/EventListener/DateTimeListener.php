@@ -16,6 +16,7 @@ class DateTimeListener
             return;
         }
 
+        /** @var \HeimrichHannot\FormFieldsCollectionBundle\Model\FormFieldModel $widget */
         $widget = FormFieldModel::findByPk($dc->id);
         if (!$widget || (DateTimeWidget::TYPE !== $widget->type)) {
             return;

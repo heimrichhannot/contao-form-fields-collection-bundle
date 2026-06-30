@@ -6,6 +6,9 @@ use Contao\FormCheckbox;
 use Contao\Input;
 use Contao\System;
 
+/**
+ * @property string $text
+ */
 class SingleCheckboxWidget extends FormCheckbox
 {
     public const TYPE = 'huh_single_checkbox';

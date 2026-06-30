@@ -6,6 +6,11 @@ use Contao\Date;
 use Contao\FormFieldModel;
 use Contao\FormText;
 
+/**
+ * @property string $defaultDateTimeValue
+ * @property string $dateTimeType
+ * @property string $parentTemplate
+ */
 #[\AllowDynamicProperties]
 class DateTimeWidget extends FormText
 {
