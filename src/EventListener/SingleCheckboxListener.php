@@ -12,7 +12,7 @@ class SingleCheckboxListener
     #[AsCallback(table: 'tl_form_field', target: 'config.onload')]
     public function onLoadCallback(DataContainer $dc): void
     {
-        if (!$dc || !$dc->id) {
+        if (!$dc->id) {
             return;
         }
 

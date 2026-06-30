@@ -24,6 +24,16 @@
         "contao/core-bundle": "^5.3",
         "symfony/http-kernel": "^6.4 || ^7.0"
     },
+    "require-dev": {
+        "contao/core-bundle": "5.3.*",
+        "rector/rector": "^2.5",
+        "contao/contao-rector": "dev-main",
+        "symplify/easy-coding-standard": "^13.2",
+        "phpstan/phpstan": "^2.2",
+        "phpstan/phpstan-symfony": "^2.0",
+        "contao/manager-plugin": "^2.13",
+        "terminal42/contao-leads": "^3.2"
+    },
     "autoload": {
         "psr-4": {
             "HeimrichHannot\\FormFieldsCollectionBundle\\": "src/"

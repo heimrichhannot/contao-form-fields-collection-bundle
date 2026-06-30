@@ -12,12 +12,13 @@ class DateTimeListener
     #[AsCallback(table: 'tl_form_field', target: 'config.onload')]
     public function onLoadCallback(DataContainer $dc): void
     {
-        if (!$dc || !$dc->id) {
+        if (!$dc->id) {
             return;
         }
 
+        /** @var \HeimrichHannot\FormFieldsCollectionBundle\Model\FormFieldModel|null $widget */
         $widget = FormFieldModel::findByPk($dc->id);
-        if (!$widget || (DateTimeWidget::TYPE !== $widget->type)) {
+        if (DateTimeWidget::TYPE !== $widget?->type) {
             return;
         }
 
@@ -34,6 +35,6 @@ class DateTimeListener
                 $GLOBALS['TL_DCA']['tl_form_field']['fields']['maxval']['eval']['rgxp'] = 'time';
                 $GLOBALS['TL_DCA']['tl_form_field']['fields']['value']['label'] = &$GLOBALS['TL_LANG']['tl_form_field']['defaultDateTimeCustomValue'];
                 break;
-        };
+        }
     }
 }
