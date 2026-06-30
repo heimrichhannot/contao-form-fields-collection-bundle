@@ -27,15 +27,15 @@ class DateTimeWidget extends FormText
             if ($fieldModel) {
                 $this->value = match ($this->dateTimeType) {
                     'date' => Date::parse('Y-m-d', $fieldModel->value),
-                    'time' => Date::parse("H:i", $fieldModel->value),
-                    default => ''
+                    'time' => Date::parse('H:i', $fieldModel->value),
+                    default => '',
                 };
             }
         } elseif ('current' === $this->defaultDateTimeValue) {
             $this->value = match ($this->dateTimeType) {
-                "", 'date' => date('Y-m-d'),
+                '', 'date' => date('Y-m-d'),
                 'time' => date('H:i'),
-                default => ''
+                default => '',
             };
         }
 
@@ -72,7 +72,7 @@ class DateTimeWidget extends FormText
         });
     }
 
-    public function parse($arrAttributes=null)
+    public function parse($arrAttributes = null)
     {
         // restore field value on errors
         if ($this->hasErrors()) {
@@ -89,6 +89,7 @@ class DateTimeWidget extends FormText
                 };
             }
         }
+
         return parent::parse($arrAttributes);
     }
 }

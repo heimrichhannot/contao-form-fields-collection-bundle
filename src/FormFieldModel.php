@@ -7,5 +7,4 @@ namespace HeimrichHannot\FormFieldsCollectionBundle\Model;
  */
 class FormFieldModel extends \Contao\FormFieldModel
 {
-
 }

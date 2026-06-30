@@ -3,11 +3,11 @@
 use HeimrichHannot\FormFieldsCollectionBundle\FrontendWidget\DateTimeWidget;
 use HeimrichHannot\FormFieldsCollectionBundle\FrontendWidget\SingleCheckboxWidget;
 
-$GLOBALS['TL_LANG']['FFL'][DateTimeWidget::TYPE]       = [
+$GLOBALS['TL_LANG']['FFL'][DateTimeWidget::TYPE] = [
     'Datum-/ Zeitfeld (Form Fields Collection)',
-    'Ermöglicht die Eingabe von Datum und/ oder Zeit.'
+    'Ermöglicht die Eingabe von Datum und/ oder Zeit.',
 ];
-$GLOBALS['TL_LANG']['FFL'][SingleCheckboxWidget::TYPE]       = [
+$GLOBALS['TL_LANG']['FFL'][SingleCheckboxWidget::TYPE] = [
     'Checkbox Einzeln (Form Fields Collection)',
-    'Eine einzelne Checkbox, die entweder aktiviert oder deaktiviert sein kann.'
+    'Eine einzelne Checkbox, die entweder aktiviert oder deaktiviert sein kann.',
 ];

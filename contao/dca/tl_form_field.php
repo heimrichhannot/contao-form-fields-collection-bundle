@@ -33,7 +33,9 @@ $dca['fields']['dateTimeType'] = [
     ],
     'reference' => &$GLOBALS['TL_LANG']['tl_form_field'],
     'default' => 'date',
-    'eval' => ['tl_class' => 'w50'],
+    'eval' => [
+        'tl_class' => 'w50',
+    ],
     'sql' => "varchar(4) NOT NULL default ''",
 ];
 
@@ -51,4 +53,3 @@ $dca['fields']['defaultDateTimeValue'] = [
     ],
     'sql' => "varchar(8) NOT NULL default ''",
 ];
-

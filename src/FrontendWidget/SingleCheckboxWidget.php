@@ -17,10 +17,10 @@ class SingleCheckboxWidget extends FormCheckbox
 
     protected function getOption(): array
     {
-        $text = System::getContainer()->get('contao.insert_tag.parser')->replaceInline((string)$this->text);
+        $text = System::getContainer()->get('contao.insert_tag.parser')->replaceInline((string) $this->text);
         if (
-            preg_match('/^\s*<p\b[^>]*>(.*)<\/p>\s*$/is', (string) $text, $matches) === 1
-            && preg_match('/<\/?p\b/i', $matches[1]) !== 1
+            1 === preg_match('/^\s*<p\b[^>]*>(.*)<\/p>\s*$/is', (string) $text, $matches)
+            && 1 !== preg_match('/<\/?p\b/i', $matches[1])
         ) {
             $text = trim($matches[1]);
         }
@@ -32,7 +32,7 @@ class SingleCheckboxWidget extends FormCheckbox
             'id' => $this->strId,
             'value' => $value,
             'attributes' => $this->getAttributes(),
-            'label' => $text
+            'label' => $text,
         ];
         if ($this->mandatory) {
             $option['mandatory'] = true;
@@ -41,7 +41,7 @@ class SingleCheckboxWidget extends FormCheckbox
         if (!Input::isPost()) {
             $option['checked'] = false;
         } else {
-            $option['checked'] = (string)$this->varValue === (string)$value;
+            $option['checked'] = (string) $this->varValue === (string) $value;
         }
 
         return $option;
@@ -52,14 +52,15 @@ class SingleCheckboxWidget extends FormCheckbox
         if ($this->mandatory) {
             $this->arrAttributes['required'] = 'required';
         }
+
         return parent::getAttributes($arrStrip);
     }
-
 
     protected function isValidOption($varInput): bool
     {
         // set arrOptions to make parent validation work
         $this->arrOptions = [$this->getOption()];
+
         return parent::isValidOption($varInput);
     }
 }

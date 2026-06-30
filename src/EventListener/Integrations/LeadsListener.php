@@ -25,12 +25,14 @@ class LeadsListener
 
         if (null === $format) {
             $event->stopPropagation();
+
             return;
         }
 
         try {
             $event->setValue((new Date($event->getValue(), $format))->tstamp);
-        } catch (\Exception) {}
+        } catch (\Exception) {
+        }
 
         $event->stopPropagation();
     }
@@ -50,12 +52,14 @@ class LeadsListener
 
         if (null === $format) {
             $event->stopPropagation();
+
             return;
         }
 
         try {
             $event->setLabel(Date::parse($format, $event->getValue()));
-        } catch (\Exception) {}
+        } catch (\Exception) {
+        }
 
         $event->stopPropagation();
     }

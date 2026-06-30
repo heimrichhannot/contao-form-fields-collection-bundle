@@ -35,6 +35,6 @@ class DateTimeListener
                 $GLOBALS['TL_DCA']['tl_form_field']['fields']['maxval']['eval']['rgxp'] = 'time';
                 $GLOBALS['TL_DCA']['tl_form_field']['fields']['value']['label'] = &$GLOBALS['TL_LANG']['tl_form_field']['defaultDateTimeCustomValue'];
                 break;
-        };
+        }
     }
 }
