@@ -16,7 +16,11 @@
         <?php endif; ?>
 
         <?php if ($this->hasErrors()): ?>
-            <p class="error"><?= $this->getErrorAsString() ?></p>
+            <?php
+                $errorElement = $this->option_wrapper_element ?: 'p';
+                $errorElementAttributes = $this->attrs()->addClass('error')->mergeWith($this->errorAttributes ?: []);
+            ?>
+            <<?= $errorElement ?><?= $errorElementAttributes ?>><?= $this->getErrorAsString() ?></<?= $errorElement ?>>
         <?php endif; ?>
 
         <input type="hidden" name="<?= $this->name ?>" value="">

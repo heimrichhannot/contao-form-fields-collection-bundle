@@ -65,29 +65,29 @@ class DateTimeWidget extends FormText
             return parent::validator('');
         }
 
-        return parent::validator(match ($this->dateTimeType) {
-            'date' => \DateTime::createFromFormat('Y-m-d', $varInput)->format(Date::getNumericDateFormat()),
-            'time' => \DateTime::createFromFormat('H:i', $varInput)->format(Date::getNumericTimeFormat()),
-            default => $varInput,
-        });
+        return parent::validator(
+            match ($this->dateTimeType) {
+                'date' => \DateTime::createFromFormat('Y-m-d', $varInput)->format(Date::getNumericDateFormat()),
+                'time' => \DateTime::createFromFormat('H:i', $varInput)->format(Date::getNumericTimeFormat()),
+                default => $varInput,
+            }
+        );
     }
 
     public function parse($arrAttributes = null)
     {
         // restore field value on errors
-        if ($this->hasErrors()) {
-            $dateTime = match ($this->dateTimeType) {
-                'date' => \DateTime::createFromFormat(Date::getNumericDateFormat(), $this->value),
-                'time' => \DateTime::createFromFormat(Date::getNumericTimeFormat(), $this->value),
+        $dateTime = match ($this->dateTimeType) {
+            'date' => \DateTime::createFromFormat(Date::getNumericDateFormat(), $this->value),
+            'time' => \DateTime::createFromFormat(Date::getNumericTimeFormat(), $this->value),
+            default => $this->value,
+        };
+        if (false !== $dateTime) {
+            $this->value = match ($this->dateTimeType) {
+                'date' => $dateTime->format('Y-m-d'),
+                'time' => $dateTime->format('H:i'),
                 default => $this->value,
             };
-            if (false !== $dateTime) {
-                $this->value = match ($this->dateTimeType) {
-                    'date' => $dateTime->format('Y-m-d'),
-                    'time' => $dateTime->format('H:i'),
-                    default => $this->value,
-                };
-            }
         }
 
         return parent::parse($arrAttributes);

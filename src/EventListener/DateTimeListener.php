@@ -22,18 +22,25 @@ class DateTimeListener
             return;
         }
 
+        $fields = &$GLOBALS['TL_DCA']['tl_form_field']['fields'];
         switch ($widget->dateTimeType) {
             case 'date':
-                $GLOBALS['TL_DCA']['tl_form_field']['fields']['value']['eval']['rgxp'] = 'date';
-                $GLOBALS['TL_DCA']['tl_form_field']['fields']['minval']['eval']['rgxp'] = 'date';
-                $GLOBALS['TL_DCA']['tl_form_field']['fields']['maxval']['eval']['rgxp'] = 'date';
-                $GLOBALS['TL_DCA']['tl_form_field']['fields']['value']['label'] = &$GLOBALS['TL_LANG']['tl_form_field']['defaultDateTimeCustomValue'];
+                $fields['value']['eval']['rgxp'] = 'date';
+                $fields['value']['eval']['datepicker'] = true;
+                $fields['value']['label'] = &$GLOBALS['TL_LANG']['tl_form_field']['defaultDateTimeCustomValue'];
+                $fields['minval']['eval']['rgxp'] = 'date';
+                $fields['minval']['eval']['datepicker'] = true;
+                $fields['maxval']['eval']['rgxp'] = 'date';
+                $fields['maxval']['eval']['datepicker'] = true;
                 break;
             case 'time':
-                $GLOBALS['TL_DCA']['tl_form_field']['fields']['value']['eval']['rgxp'] = 'time';
-                $GLOBALS['TL_DCA']['tl_form_field']['fields']['minval']['eval']['rgxp'] = 'time';
-                $GLOBALS['TL_DCA']['tl_form_field']['fields']['maxval']['eval']['rgxp'] = 'time';
-                $GLOBALS['TL_DCA']['tl_form_field']['fields']['value']['label'] = &$GLOBALS['TL_LANG']['tl_form_field']['defaultDateTimeCustomValue'];
+                $fields['value']['eval']['rgxp'] = 'time';
+                $fields['value']['eval']['datepicker'] = true;
+                $fields['value']['label'] = &$GLOBALS['TL_LANG']['tl_form_field']['defaultDateTimeCustomValue'];
+                $fields['minval']['eval']['rgxp'] = 'time';
+                $fields['minval']['eval']['datepicker'] = true;
+                $fields['maxval']['eval']['rgxp'] = 'time';
+                $fields['maxval']['eval']['datepicker'] = true;
                 break;
         }
     }

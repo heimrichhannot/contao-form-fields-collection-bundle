@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.1] - 2026-06-30
+- Changed: make the error message customizable for SingleCheckboxWidget
+- Changed: show pickers in the backend for DateTimeWidget
+- Fixed: the remaining occurs where the value of DateTimeWidget gets lost
+
 ## [0.2.0] - 2026-06-30
 - Changed: drop contao 4 support
 - Changed: drop php 8.1 support
