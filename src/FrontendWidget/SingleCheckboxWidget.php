@@ -31,6 +31,9 @@ class SingleCheckboxWidget extends FormCheckbox
             'attributes' => $this->getAttributes(),
             'label' => $text
         ];
+        if ($this->mandatory) {
+            $option['mandatory'] = true;
+        }
 
         if (!Input::isPost()) {
             $option['checked'] = false;
@@ -40,6 +43,15 @@ class SingleCheckboxWidget extends FormCheckbox
 
         return $option;
     }
+
+    public function getAttributes($arrStrip = array())
+    {
+        if ($this->mandatory) {
+            $this->arrAttributes['required'] = 'required';
+        }
+        return parent::getAttributes($arrStrip);
+    }
+
 
     protected function isValidOption($varInput): bool
     {

@@ -39,7 +39,7 @@
         <<?= $wrapperElement ?><?= $wrapperElementAttributes ?>>
             <input<?= $checkboxAttributes ?>>
             <label id="lbl_<?= $option['id'] ?>" for="opt_<?= $option['id'] ?>">
-                <?php if ($this->mandatory): ?>
+                <?php if ($option['mandatory'] ?? false): ?>
                     <span class="invisible"><?= $this->mandatoryField ?> </span><?= $option['label'] ?>
                     <span class="mandatory">*</span>
                 <?php else: ?>
