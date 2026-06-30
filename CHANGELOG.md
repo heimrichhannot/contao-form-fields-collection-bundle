@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.0] - 2026-06-30
+- Changed: drop contao 4 support
+- Changed: drop php 8.1 support
+- Removed: SuccessMessageWidget
+
 ## [0.1.10] - 2026-06-30
 - Fixed: mandatory evaluation for single checkbox field type (especially when overriding template with twig) ([#3](https://github.com/heimrichhannot/contao-form-fields-collection-bundle/pull/3))
 - Fixed: value of DateTimeWidget get lost on errors
