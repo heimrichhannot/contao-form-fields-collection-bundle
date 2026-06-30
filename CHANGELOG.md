@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ## [0.1.10] - 2026-06-30
 - Fixed: mandatory evaluation for single checkbox field type (especially when overriding template with twig) ([#3](https://github.com/heimrichhannot/contao-form-fields-collection-bundle/pull/3))
+- Fixed: value of DateTimeWidget get lost on errors
 
 ## [0.1.9] - 2026-04-10
 - Added: single checkbox field type ([#1](https://github.com/heimrichhannot/contao-form-fields-collection-bundle/pull/1))

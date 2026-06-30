@@ -45,8 +45,6 @@ class DateTimeWidget extends FormTextField
         }
     }
 
-
-
     public function __get($strKey)
     {
         switch ($strKey) {
@@ -59,22 +57,6 @@ class DateTimeWidget extends FormTextField
                     return 'time';
                 }
                 break;
-//            case 'value':
-//                if ($this->blnSubmitInput) {
-//                    return parent::__get($strKey);
-//                }
-//                if ('custom' === $this->defaultDateTimeValue) {
-//                    return parent::__get($strKey);
-//                } else {
-//                    if ('date' === $this->dateTimeType) {
-//                        return date('Y-m-d');
-//                    }
-//                    if ('time' === $this->dateTimeType) {
-//                        return date('H:i');
-//                    }
-//                }
-//
-//                break;
         }
 
         return parent::__get($strKey);
@@ -92,5 +74,21 @@ class DateTimeWidget extends FormTextField
         });
     }
 
-
+    public function parse($arrAttributes=null)
+    {
+        // restore field value on errors
+        if ($this->hasErrors()) {
+            $dateTime = match ($this->dateTimeType) {
+                'date' => \DateTime::createFromFormat(Date::getNumericDateFormat(), $this->value),
+                'time' => \DateTime::createFromFormat(Date::getNumericTimeFormat(), $this->value),
+            };
+            if (false !== $dateTime) {
+                $this->value = match ($this->dateTimeType) {
+                    'date' => $dateTime->format('Y-m-d'),
+                    'time' => $dateTime->format('H:i'),
+                };
+            }
+        }
+        return parent::parse($arrAttributes);
+    }
 }
