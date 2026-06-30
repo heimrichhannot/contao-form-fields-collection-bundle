@@ -2,19 +2,12 @@
 
 namespace HeimrichHannot\FormFieldsCollectionBundle\FrontendWidget;
 
-use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\Date;
 use Contao\FormFieldModel;
-use Contao\FormTextField;
 use Contao\FormText;
 
-if (!class_exists(FormTextField::class)) {
-    class_alias(FormText::class, FormTextField::class);
-}
-
-// add this when we drop support for php 8.1
-//#[\AllowDynamicProperties]
-class DateTimeWidget extends FormTextField
+#[\AllowDynamicProperties]
+class DateTimeWidget extends FormText
 {
     public const TYPE = 'huh_datetime';
 
@@ -39,10 +32,7 @@ class DateTimeWidget extends FormTextField
             };
         }
 
-        $this->parentTemplate = 'form_textfield';
-        if (version_compare(ContaoCoreBundle::getVersion(), '5.0', '>=') ) {
-            $this->parentTemplate = 'form_text';
-        }
+        $this->parentTemplate = 'form_text';
     }
 
     public function __get($strKey)
