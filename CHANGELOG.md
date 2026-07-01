@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.2] - 2026-07-01
+- Added: Bootstrap 5 template variant for SingleCheckboxWidget
+- Added: template variable to style the label of SingleCheckboxWidget
+- Changed: updated variable names for customizing SingleCheckboxWidget (old ones are supported but deprecated)
+  Adjust your templates accordingly:
+  - `errorAttributes` -> `error_wrapper_attributes`
+  - `wrapperElementAttributes` -> `option_wrapper_attributes`
+  - `checkboxAttributes` -> `checkbox_attributes`
+- Fixed: option wrapper element used for error wrapper
+        
+
 ## [0.2.1] - 2026-06-30
 - Changed: make the error message customizable for SingleCheckboxWidget
 - Changed: show pickers in the backend for DateTimeWidget

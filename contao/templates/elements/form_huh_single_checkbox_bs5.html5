@@ -1,0 +1,7 @@
+<?php
+$this->extend('form_huh_single_checkbox');
+$this->option_wrapper_element = 'div';
+$this->option_wrapper_attributes = $this->attrs()->addClass('form-check')->mergeWith($this->wrapperElementAttributes);
+$this->checkbox_attributes = $this->attrs()->addClass('form-check-input')->mergeWith($this->checkbox_attributes ?: []);
+$this->label_attributes = $this->attrs()->addClass('form-check-label')->mergeWith($this->label_attributes);
+?>
