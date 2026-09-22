@@ -17,7 +17,6 @@
             {% set error_element = error_wrapper_element|default(this.error_wrapper_element|default('p')) %}
             {% set error_attributes = attrs()
                 .addClass('error')
-                .mergeWith(this.errorAttributes|default)
                 .mergeWith(error_wrapper_attributes|default(this.error_wrapper_attributes|default))
             %}
             <{{ error_element }}{{ error_attributes }}>{{ getErrorAsString.invoke() }}</{{ error_element }}>
@@ -28,7 +27,6 @@
         {% set option = getOption.invoke() %}
         {% set option_element = option_wrapper_element|default(this.option_wrapper_element|default('span')) %}
         {% set option_attributes = attrs()
-            .mergeWith(this.wrapperElementAttributes|default)
             .mergeWith(option_wrapper_attributes|default(this.option_wrapper_attributes|default))
         %}
         {% set input_attributes = attrs()
@@ -39,7 +37,6 @@
             .set('value', option.value)
             .set('checked', option.checked, option.checked)
             .mergeWith(option.attributes)
-            .mergeWith(this.checkboxAttributes|default)
             .mergeWith(checkbox_attributes|default(this.checkbox_attributes|default))
         %}
         {% set option_label_attributes = attrs()

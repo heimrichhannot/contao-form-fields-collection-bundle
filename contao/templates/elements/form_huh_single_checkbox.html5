@@ -18,7 +18,7 @@
         <?php if ($this->hasErrors()): ?>
             <?php
                 $errorElement = $this->error_wrapper_element ?: 'p';
-                $errorElementAttributes = $this->attrs()->addClass('error')->mergeWith($this->errorAttributes ?: [])->mergeWith($this->error_wrapper_attributes ?: []);
+                $errorElementAttributes = $this->attrs()->addClass('error')->mergeWith($this->error_wrapper_attributes ?: []);
             ?>
             <<?= $errorElement ?><?= $errorElementAttributes ?>><?= $this->getErrorAsString() ?></<?= $errorElement ?>>
         <?php endif; ?>
@@ -28,7 +28,7 @@
         <?php
             $option = $this->getOption();
             $wrapperElement = $this->option_wrapper_element ?: 'span';
-            $wrapperAttributes = $this->attrs()->mergeWith($this->wrapperElementAttributes ?: [])->mergeWith($this->option_wrapper_attributes);
+            $wrapperAttributes = $this->attrs()->mergeWith($this->option_wrapper_attributes);
             $checkboxAttributes = $this->attrs()
                     ->set('type', 'checkbox')
                     ->set('name', $option['name'])
@@ -38,7 +38,6 @@
                     ->set('checked', 'checked', $option['checked'])
                     ->set('checked', 'checked', $option['checked'])
                     ->mergeWith($option['attributes'])
-                    ->mergeWith($this->checkboxAttributes ?: [])
                     ->mergeWith($this->checkbox_attributes ?: []);
             $labelAttributes = $this->attrs()
                 ->set('id', 'lbl_'.$option['id'])

@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+- Removed: deprecated SingleCheckboxWidget template variables `errorAttributes`, `wrapperElementAttributes`, and `checkboxAttributes`. Use `error_wrapper_attributes`, `option_wrapper_attributes`, and `checkbox_attributes` instead.
+
 ## [0.2.2] - 2026-07-01
 - Added: Bootstrap 5 template variant for SingleCheckboxWidget
 - Added: template variable to style the label of SingleCheckboxWidget
