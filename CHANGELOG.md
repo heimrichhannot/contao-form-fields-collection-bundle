@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ## [0.3.0] - 2026-09-22
 
-- Added: Twig versions of `form_huh_datetime`, `form_huh_single_checkbox`, `form_huh_single_checkbox_bs5`, and `form_huh_successMessage`, based on Contao's core form templates. Existing `.html5` templates remain available.
+- Added: Twig versions of `form_huh_datetime`, `form_huh_single_checkbox`, and `form_huh_single_checkbox_bs5`, based on Contao's core form templates. The corresponding `.html5` templates remain available.
 - Added: Configurable `invisible_class` in the single-checkbox Twig template for visually hidden mandatory-field text.
 
 - Changed: **Breaking:** raised the minimum PHP version from 8.2 to 8.4 and the minimum Contao version from 5.3 to 5.7.
@@ -15,6 +15,8 @@ All notable changes to this project will be documented in this file.
   - `errorAttributes` → `error_wrapper_attributes`
   - `wrapperElementAttributes` → `option_wrapper_attributes`
   - `checkboxAttributes` → `checkbox_attributes`
+
+- Removed: unused `form_huh_successMessage.html5` and `form_huh_successMessage.html.twig` templates left over from the SuccessMessageWidget removed in 0.2.0.
 
 ## [0.2.2] - 2026-07-01
 

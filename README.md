@@ -45,9 +45,7 @@ Twig templates are provided under `contao/templates/twig/` and follow Contao's c
 | `form_huh_datetime.html.twig` | Date/time field; inherits from the widget's configured parent template (`form_text` by default) |
 | `form_huh_single_checkbox.html.twig` | Single checkbox with a rich-text option label |
 | `form_huh_single_checkbox_bs5.html.twig` | Bootstrap 5 single checkbox variant |
-| `form_huh_successMessage.html.twig` | Compatibility template extending Contao's explanation template |
 
-The success-message template does not reintroduce the `SuccessMessageWidget` removed in 0.2.0.
 The existing `.html5` templates remain available. New customizations should use Twig.
 
 The single-checkbox templates support these variables:
@@ -101,7 +99,8 @@ Update custom templates to use the replacements. Local PHP variables are unaffec
 Existing overrides that explicitly extend a `.html5` template continue to use that legacy template.
 Change the parent reference to its `.html.twig` counterpart to adopt the Twig version.
 The backend `be_tinyMCE_option.html.twig` template now lives in the bundle's Twig root; its template name is unchanged.
-Clear Contao's cache after updating so template discovery picks up the new files.
+The unused `form_huh_successMessage.html5` and `.html.twig` templates have been removed; the associated widget was already removed in 0.2.0.
+Clear Contao's cache after updating so template discovery picks up the changes.
 
 ## Development
 
