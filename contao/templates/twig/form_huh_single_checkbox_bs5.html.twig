@@ -1,0 +1,16 @@
+{% extends '@Contao_HeimrichHannotFormFieldsCollectionBundle/form_huh_single_checkbox.html.twig' %}
+
+{% set option_wrapper_element = 'div' %}
+{% set option_wrapper_attributes = attrs()
+    .addClass('form-check')
+    .mergeWith(option_wrapper_attributes|default(this.option_wrapper_attributes|default))
+%}
+{% set checkbox_attributes = attrs()
+    .addClass('form-check-input')
+    .mergeWith(checkbox_attributes|default(this.checkbox_attributes|default))
+%}
+{% set label_attributes = attrs()
+    .addClass('form-check-label')
+    .mergeWith(label_attributes|default(this.label_attributes|default))
+%}
+{% set invisible_class = 'visually-hidden' %}
