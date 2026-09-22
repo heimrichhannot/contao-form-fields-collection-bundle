@@ -2,12 +2,10 @@
 
 declare(strict_types=1);
 
-use Contao\Rector\Set\ContaoLevelSetList;
 use Contao\Rector\Set\ContaoSetList;
 use Rector\Config\RectorConfig;
+use Rector\Doctrine\Set\DoctrineSetList;
 use Rector\Php81\Rector\Array_\ArrayToFirstClassCallableRector;
-use Rector\Php84\Rector\Param\ExplicitNullableParamTypeRector;
-use Rector\Set\ValueObject\LevelSetList;
 use Rector\TypeDeclaration\Rector\ClassMethod\AddVoidReturnTypeWhereNoReturnRector;
 use Rector\ValueObject\PhpVersion;
 
@@ -18,10 +16,9 @@ return RectorConfig::configure()
 
     ])
     ->withPhpVersion(PhpVersion::PHP_84)
+    ->withPhpSets(php84: true)
     ->withRules([
         AddVoidReturnTypeWhereNoReturnRector::class,
-        # In Vorbereitung für PHP 8.4:
-        ExplicitNullableParamTypeRector::class,
     ])
 
     ->withImportNames(
@@ -35,8 +32,14 @@ return RectorConfig::configure()
         symfony: true,
     )
     ->withSets([
-        LevelSetList::UP_TO_PHP_82,
-        ContaoLevelSetList::UP_TO_CONTAO_53,
+        // The cumulative Contao sets reference constants removed in Rector 2.6.
+        // Composer-based sets cover the installed Symfony and Doctrine versions.
+        ContaoSetList::CONTAO_49,
+        ContaoSetList::CONTAO_413,
+        ContaoSetList::CONTAO_50,
+        ContaoSetList::CONTAO_51,
+        ContaoSetList::CONTAO_53,
+        DoctrineSetList::ANNOTATIONS_TO_ATTRIBUTES,
         ContaoSetList::FQCN,
         ContaoSetList::ANNOTATIONS_TO_ATTRIBUTES,
     ])
